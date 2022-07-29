@@ -1,9 +1,10 @@
 import express from 'express';
-
-// go
+import productRouter from './routers/products.router';
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/products', productRouter);
 
 export default app;
