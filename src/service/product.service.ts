@@ -10,6 +10,8 @@ class ProductService {
   }
 
   post = async (product: Product): Promise<Product> => this.ProductModel.post(product);
+
+  getAll = async (): Promise<Product[]> => this.ProductModel.getAll();
 }
 
 export default ProductService;
