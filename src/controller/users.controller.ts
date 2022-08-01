@@ -3,16 +3,16 @@ import { StatusCodes } from 'http-status-codes';
 import UsersService from '../service/user.service';
 
 class UsersController {
-  public service: UsersService;
+  public userService: UsersService;
 
-  constructor(service: UsersService = new UsersService()) {
-    this.service = service;
+  constructor(userService: UsersService = new UsersService()) {
+    this.userService = userService;
   }
 
   public async post(req: Request, res: Response): Promise<Response> {
     const user = req.body;
-    const { insertId } = await this.service.post(user);
-    return res.status(StatusCodes.CREATED).json({ id: insertId, ...user });
+    const token = await this.userService.post(user);
+    return res.status(StatusCodes.CREATED).json(token);
   }
 }
 
