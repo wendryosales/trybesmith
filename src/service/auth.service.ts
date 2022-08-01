@@ -4,10 +4,12 @@ import Payload from '../interfaces/payload.interface';
 
 dotenv.config();
 
-class AuthService {
-  sign = (payload: Payload) => jwt.sign(payload, process.env.JWT_SECRET as string);
+const secret = process.env.JWT_SECRET || 'mysecret';
 
-  verify = (token: string) => jwt.verify(token, process.env.JWT_SECRET as string);
+class AuthService {
+  sign = (payload: Payload) => jwt.sign(payload, secret as string);
+
+  verify = (token: string) => jwt.verify(token, secret as string);
 }
 
 export default AuthService;
