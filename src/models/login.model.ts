@@ -13,7 +13,6 @@ class LoginModel {
       'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ? ;',
       [username, password],
     );
-    console.log(rows);
     
     return rows as unknown as [User];
   };
