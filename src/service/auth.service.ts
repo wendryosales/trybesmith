@@ -6,6 +6,8 @@ dotenv.config();
 
 class AuthService {
   sign = (payload: Payload) => jwt.sign(payload, process.env.JWT_SECRET as string);
+
+  verify = (token: string) => jwt.verify(token, process.env.JWT_SECRET as string);
 }
 
 export default AuthService;

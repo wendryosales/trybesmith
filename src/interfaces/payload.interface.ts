@@ -1,5 +1,6 @@
 interface Payload {
-  sub: number | undefined,
+  id: number | undefined,
+  username: string,
 }
 
 export default Payload;

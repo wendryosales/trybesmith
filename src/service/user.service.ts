@@ -18,7 +18,8 @@ class UsersService {
   }
 
   post = async (user: User): Promise<Token> => {
-    const token = this.AuthService.sign({ sub: user.id });
+    const { id, username } = user;
+    const token = this.AuthService.sign({ id, username });
     this.UsersModel.post(user);
     return { token };
   };
